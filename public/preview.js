@@ -1,19 +1,14 @@
 function showPreview(file) {
   const previewContainer = document.getElementById('preview-container');
 
-  // ساخت کارت پیش‌نمایش
   const card = document.createElement('div');
   card.className = 'preview-card fade-in';
-
-  // هدر کارت (نام و حجم فایل)
   const header = document.createElement('div');
   header.className = 'preview-header';
   header.innerHTML = `
     <span class="file-name">${file.name}</span>
     <span class="file-size">${(file.size / 1024).toFixed(1)} KB</span>
   `;
-
-  // محتوای پیش‌نمایش
   let preview;
   const fileURL = URL.createObjectURL(file);
 
@@ -37,22 +32,17 @@ function showPreview(file) {
     preview.className = 'file-icon';
     preview.textContent = '📄';
   }
-
-  // دکمه حذف پیش‌نمایش
   const removeBtn = document.createElement('button');
   removeBtn.className = 'remove-btn';
   removeBtn.textContent = '✖';
   removeBtn.title = 'Remove preview';
   removeBtn.addEventListener('click', () => {
-    URL.revokeObjectURL(fileURL); // آزاد کردن حافظه
+    URL.revokeObjectURL(fileURL);
     card.remove();
   });
 
-  // اضافه کردن اجزا به کارت
   card.appendChild(removeBtn);
   card.appendChild(header);
   card.appendChild(preview);
-
-  // اضافه کردن کارت به کانتینر
   previewContainer.appendChild(card);
 }
