@@ -1,4 +1,4 @@
-/* 🎯 متغیرهای رنگ و تم */
+/* 🎯 Color and theme variables */
 :root {
   --bg-color: #ffffff;
   --text-color: #222;
@@ -31,7 +31,7 @@ body {
   line-height: 1.6;
 }
 
-/* 🌟 هدر */
+/* 🌟 heather */
 header {
   display: flex;
   justify-content: space-between;
@@ -90,14 +90,14 @@ header nav a:hover {
   transform: scale(1.02);
 }
 
-/* 📱 ریسپانسیو Drop Zone */
+/* 📱 Responsive Drop Zone */
 @media (max-width: 600px) {
   #drop-zone {
     padding: 1rem;
   }
 }
 
-/* 🖼️ پیش‌نمایش فایل‌ها */
+/* 🖼️ Preview files */
 #preview-container {
   display: flex;
   flex-wrap: wrap;
@@ -147,7 +147,6 @@ progress::-moz-progress-bar {
   border-radius: 6px;
 }
 
-/* 📂 لیست فایل‌ها */
 .file-list {
   list-style: none;
   padding: 0;
@@ -166,7 +165,6 @@ progress::-moz-progress-bar {
   border-bottom: none;
 }
 
-/* 🎯 دکمه‌ها */
 button, .btn-primary {
   padding: 0.75rem 1.5rem;
   border: none;
@@ -182,7 +180,6 @@ button:hover, .btn-primary:hover {
   transform: translateY(-2px);
 }
 
-/* 📋 فرم‌ها */
 form {
   display: flex;
   flex-direction: column;
@@ -202,7 +199,6 @@ input:focus, select:focus {
   outline: none;
 }
 
-/* 🛑 پیام خطا و موفقیت */
 .error {
   color: var(--error-color);
   font-size: 0.85rem;
@@ -213,7 +209,6 @@ input:focus, select:focus {
   font-size: 0.9rem;
 }
 
-/* 🌐 لینک‌ها */
 a {
   color: var(--accent-color);
   text-decoration: none;
@@ -223,7 +218,6 @@ a:hover {
   text-decoration: underline;
 }
 
-/* 🎬 انیمیشن‌ها */
 .fade-in {
   animation: fadeIn 0.5s ease-in-out;
 }
@@ -233,7 +227,6 @@ a:hover {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* 🎯 اسکرول‌بار سفارشی */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -251,7 +244,6 @@ a:hover {
   background: var(--accent-color-dark);
 }
 
-/* 📱 ریسپانسیو کلی */
 @media (max-width: 768px) {
   header nav {
     display: none;
@@ -260,3 +252,4 @@ a:hover {
     padding: 2rem 1rem;
   }
 }
+
