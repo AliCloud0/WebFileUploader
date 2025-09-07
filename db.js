@@ -4,9 +4,8 @@ const { Sequelize } = require('sequelize');
      const sequelize = new Sequelize({
        dialect: config.dbConfig.dialect,
        storage: config.dbConfig.storage,
-       logging: console.log // فعال کردن لاگ برای دیباگ
+       logging: console.log
      });
-
      sequelize.authenticate()
        .then(() => console.log('Connection to database successful'))
        .catch(err => console.error('Unable to connect to the database:', err));
