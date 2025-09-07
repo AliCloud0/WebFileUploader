@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let startTime = null;
 
-  /** 🎯 رویدادهای Drag & Drop با افکت */
   dropZone.addEventListener('dragover', (e) => {
     e.preventDefault();
     dropZone.classList.add('drag-over');
@@ -28,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   fileInput.addEventListener('change', (e) => handleFiles(e.target.files));
 
-  /** 📂 پردازش فایل‌ها */
   function handleFiles(files) {
     const validFiles = Array.from(files).filter(validateFile);
     if (!validFiles.length) {
@@ -38,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
     uploadFiles(validFiles);
   }
 
-  /** ✅ اعتبارسنجی فایل */
   function validateFile(file) {
     const allowedTypes = ['image/jpeg', 'image/png', 'application/pdf', 'application/zip'];
     const maxSize = 50 * 1024 * 1024; // 50MB
@@ -53,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
     return true;
   }
 
-  /** 🚀 آپلود فایل‌ها */
   function uploadFiles(files) {
     const formData = new FormData();
     files.forEach(file => formData.append('file', file));
@@ -67,8 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
     xhr.upload.onprogress = (e) => {
       if (e.lengthComputable) {
         const percent = (e.loaded / e.total) * 100;
-        const elapsed = (new Date() - startTime) / 1000; // ثانیه
-        const speed = e.loaded / elapsed; // بایت بر ثانیه
+        const elapsed = (new Date() - startTime) / 1000;
+        const speed = e.loaded / elapsed;
         const remaining = (e.total - e.loaded) / speed;
 
         progressEl.value = percent;
@@ -96,3 +92,4 @@ document.addEventListener('DOMContentLoaded', () => {
     xhr.send(formData);
   }
 });
+
