@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🚀 Advanced File Upload Platform</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="app-header">
+    <div class="logo">📂 File<span>Pro</span></div>
+    <div class="controls">
+      <button id="theme-toggle" aria-label="Toggle Theme" title="Toggle Dark/Light Mode">🌓</button>
+      <select id="lang-select" aria-label="Language" title="Change Language">
+        <option value="en">English</option>
+        <option value="fa">فارسی</option>
+        <option value="ar">العربية</option>
+        <option value="de">Deutsch</option>
+      </select>
+    </div>
+  </header>
+
+  <main>
+    <h1 data-i18n="title" class="page-title">Welcome to <span>Advanced File Upload</span></h1>
+
+    <section id="drop-zone" class="drop-zone" tabindex="0" aria-label="File Upload Area">
+      <div class="drop-content">
+        <p data-i18n="instruction">Drag & Drop files here or</p>
+        <label for="file-input" class="file-label">
+          <input type="file" id="file-input" multiple hidden />
+          <span class="upload-btn">📁 Browse Files</span>
+        </label>
+        <small class="file-hint">Max size: 50MB | Supported: JPG, PNG, PDF, ZIP</small>
+      </div>
+    </section>
+
+    <section id="progress-bar" class="progress-section hidden">
+      <progress id="upload-progress" value="0" max="100"></progress>
+      <div class="progress-info">
+        <span id="time-remaining">--:--</span>
+        <span id="file-size">0 MB</span>
+        <span id="upload-speed">0 KB/s</span>
+      </div>
+    </section>
+
+    <section id="preview-container" class="preview-grid" aria-live="polite"></section>
+
+    <ul id="file-list" class="file-list"></ul>
+  </main>
+
+  <footer class="app-footer">
+    <p>⚡ Powered by <strong>Ali's Ultra Upload Engine</strong></p>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="dark-mode-toggle.js"></script>
+  <script src="upload.js"></script>
+  <script src="preview.js"></script>
+</body>
+</html>

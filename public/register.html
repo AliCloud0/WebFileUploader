@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🚀 Register - FilePro</title>
+  <link rel="stylesheet" href="register.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="register-card">
+    <h1>Register</h1>
+    <form id="register-form">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" required />
+        <div class="error" id="username-error"></div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" required />
+        <div class="error" id="email-error"></div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" required minlength="6" />
+        <div class="error" id="password-error"></div>
+      </div>
+      <button type="submit">Sign Up</button>
+      <div class="success" id="success-msg"></div>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('register-form');
+    const username = document.getElementById('username');
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+
+    const usernameError = document.getElementById('username-error');
+    const emailError = document.getElementById('email-error');
+    const passwordError = document.getElementById('password-error');
+    const successMsg = document.getElementById('success-msg');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let valid = true;
+
+      // Reset errors
+      usernameError.textContent = '';
+      emailError.textContent = '';
+      passwordError.textContent = '';
+      successMsg.textContent = '';
+
+      // Username validation
+      if (username.value.trim().length < 3) {
+        usernameError.textContent = 'Username must be at least 3 characters';
+        valid = false;
+      }
+
+      // Email validation
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+        emailError.textContent = 'Invalid email format';
+        valid = false;
+      }
+
+      // Password validation
+      if (password.value.length < 6) {
+        passwordError.textContent = 'Password must be at least 6 characters';
+        valid = false;
+      }
+
+      if (valid) {
+        successMsg.textContent = '✅ Registration successful!';
+        // اینجا می‌تونی درخواست به سرور بفرستی
+      }
+    });
+  </script>
+</body>
+</html>

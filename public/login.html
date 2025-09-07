@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🚀 Login - FilePro</title>
+  <link rel="stylesheet" href="login.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="login-card">
+    <h1>Login</h1>
+    <form id="login-form">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" required />
+        <div class="error" id="email-error"></div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" required minlength="6" />
+        <div class="error" id="password-error"></div>
+      </div>
+      <button type="submit">Sign In</button>
+      <div class="success" id="success-msg"></div>
+    </form>
+    <p class="register-link">Don't have an account? <a href="register.html">Register</a></p>
+  </div>
+
+  <script>
+    const form = document.getElementById('login-form');
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+
+    const emailError = document.getElementById('email-error');
+    const passwordError = document.getElementById('password-error');
+    const successMsg = document.getElementById('success-msg');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let valid = true;
+
+      // Reset errors
+      emailError.textContent = '';
+      passwordError.textContent = '';
+      successMsg.textContent = '';
+
+      // Email validation
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+        emailError.textContent = 'Invalid email format';
+        valid = false;
+      }
+
+      // Password validation
+      if (password.value.length < 6) {
+        passwordError.textContent = 'Password must be at least 6 characters';
+        valid = false;
+      }
+
+      if (valid) {
+        // اینجا می‌تونی درخواست به API بفرستی
+        successMsg.textContent = '✅ Login successful!';
+        // مثال: ارسال با fetch
+        /*
+        fetch('/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email.value, password: password.value })
+        })
+        .then(res => res.json())
+        .then(data => {
+          if (data.token) {
+            localStorage.setItem('token', data.token);
+            window.location.href = 'dashboard.html';
+          } else {
+            passwordError.textContent = 'Invalid credentials';
+          }
+        });
+        */
+      }
+    });
+  </script>
+</body>
+</html>
